@@ -1,6 +1,5 @@
 import streamlit as st
 from tasks import add_task, view_tasks, clear_tasks
-from chatbot import chat_with_ai
 import cloudinary
 import cloudinary.uploader
 import os
@@ -53,16 +52,6 @@ with col3:
     if st.button("Clear Tasks"):
         clear_tasks()
         st.warning("🗑️ All tasks cleared!")
-
-# AI Chatbot Section
-st.header("🤖 AI Chatbot")
-user_input = st.text_input("Ask the AI something:")
-if st.button("Chat"):
-    if user_input.strip():
-        response = chat_with_ai(user_input)
-        st.write("💬 **AI:**", response)
-    else:
-        st.warning("⚠ Please enter a message.")
 
 # File Upload Section
 st.header("📂 File Upload")
